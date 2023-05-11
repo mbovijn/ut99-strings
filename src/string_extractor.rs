@@ -124,6 +124,4 @@ mod tests {
     fn two_ascii_bytes_at_the_end() {
         // TODO
     }
-
-    // TODO - integration test with real demo file
 }

@@ -16,7 +16,16 @@ Options:
 
 ## Description
 
-TODO
+For the UT99 BunnyTrack mod, we wanted to have the ability to programmatically associate a user-submitted demo
+file with one or more flag captures. This can be accomplished by replicating a unique string from the server to
+the client whenever a player caps. That string will then be stored in the UT99 demo file. Once a demo gets submitted
+by a player, the idea is then to extract that particular string from the demo to associate it with a flag capture.
+
+Traditional tools like the `strings` binary that you find on Linux and Mac don't cut it here, since ASCII strings
+in demos aren't always byte-aligned. UT99 for example doesn't store a boolean value as a byte, but as a single bit.
+`ut99-strings` is able to extract all strings from a demo file albeit with some false-positives.
+
+The algorithm works by identifying sequences of printable ASCII characters, and this for each possible byte-alignment.
 
 ## Build
 1. Install [Rust](https://www.rust-lang.org/learn/get-started)
